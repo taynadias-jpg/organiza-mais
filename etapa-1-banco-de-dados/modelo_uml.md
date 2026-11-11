@@ -1,4 +1,4 @@
-# Modelo UML — Organiza+
+# Modelo UML — Agendaê
 
 ## Diagrama de classes
 
