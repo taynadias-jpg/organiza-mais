@@ -11,7 +11,7 @@ def criar_app():
     @app.get("/")
     def inicio():
         return jsonify({
-            "mensagem": "API Organiza+ funcionando!",
+            "mensagem": "API Agendaê funcionando!",
             "rotas": {
                 "consultar_tarefas": "GET /api/tarefas",
                 "cadastrar_tarefa": "POST /api/tarefas"
