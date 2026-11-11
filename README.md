@@ -1,66 +1,69 @@
-# Agendaê — Projeto Integrado DWS + POO + BD
+# Agendaê
 
-Sistema simples para organizar tarefas escolares. Os arquivos estão separados conforme o que o professor pede em cada etapa.
+O Agendaê é um projeto que desenvolvi para ajudar na organização das tarefas escolares. A ideia é ter um lugar simples para anotar atividades, colocar a matéria e a data de entrega, e depois conseguir consultar tudo sem precisar ficar procurando em vários lugares.
 
-## Parte 1 — Etapa 1: Modelagem e banco de dados
-Pasta: `etapa-1-banco-de-dados/`
+## O que o site faz
 
-- `modelo_uml.md`: diagrama UML.
-- `schema.sql`: criação da tabela.
-- `conexao.py`: conexão inicial com SQLite.
+- Cadastra uma tarefa com título, matéria e data de entrega.
+- Permite colocar uma descrição, se precisar.
+- Mostra as tarefas que já foram cadastradas.
+- Tem uma busca para encontrar uma tarefa pelo nome ou pela matéria.
 
-## Parte 2 — Etapa 2: Back-end Python
-Pasta: `etapa-2-backend/`
+## Como o projeto foi dividido
 
-- `app.py`: aplicação Flask.
-- `models/tarefa.py`: classe Tarefa.
-- `daos/tarefa_dao.py`: cadastro e consulta no banco.
-- `routes/tarefa_routes.py`: rotas GET e POST.
-- `database/`: conexão e estrutura da tabela.
-- `requirements.txt`: bibliotecas necessárias.
+Para ficar mais fácil de encontrar os arquivos, separei o projeto em três pastas:
 
-## Parte 3 — Etapa 3: Front-end (Entrega Final)
-Pasta: `etapa-3-frontend/`
+### Parte 1 — Banco de dados
+Pasta: `etapa-1-banco-de-dados`
 
-- `index.html`: estrutura da página e formulário.
-- `css/style.css`: aparência e responsividade.
-- `js/app.js`: JavaScript e integração com a API usando Fetch.
+Aqui estão o modelo UML, o arquivo SQL que cria a tabela e o código de conexão com o banco SQLite.
 
-## Como executar o sistema completo
+### Parte 2 — Back-end
+Pasta: `etapa-2-backend`
 
-**1. Inicie o back-end**
+Nesta parte ficam o Python, a classe Tarefa, o DAO e as rotas feitas com Flask. É o back-end que recebe os dados do site e conversa com o banco.
 
-Abra um terminal dentro da pasta `etapa-2-backend` e execute:
+### Parte 3 — Front-end
+Pasta: `etapa-3-frontend`
+
+Aqui está a parte que aparece para quem usa o site:
+- `index.html`: estrutura da página.
+- `css/style.css`: cores e organização visual.
+- `js/app.js`: ações do formulário, busca e comunicação com a API usando Fetch.
+
+## Como executar
+
+Primeiro, abra um terminal dentro da pasta `etapa-2-backend` e instale as dependências:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Depois, inicie o servidor Flask:
+
+```bash
 python app.py
 ```
 
-Deixe o servidor Flask aberto no terminal.
-
-**2. Inicie o front-end**
-
-Abra outro terminal na pasta principal do projeto e execute:
+Deixe esse terminal aberto. Em outro terminal, na pasta principal do projeto, inicie o servidor do front-end:
 
 ```bash
 python -m http.server 5500
 ```
 
-**3. Abra no navegador**
+Abra no navegador:
 
-Acesse `http://127.0.0.1:5500/etapa-3-frontend/`.
+```
+http://127.0.0.1:5500/etapa-3-frontend/
+```
 
-O front-end consulta as tarefas pela rota GET e envia novos cadastros pela rota POST. O back-end salva os dados no banco SQLite.
+O Flask precisa continuar funcionando enquanto o site estiver aberto, porque é ele que recebe os cadastros e consulta as tarefas.
 
-## O que cada tecnologia faz
-- **HTML:** estrutura da página.
-- **CSS:** aparência da página.
-- **JavaScript:** controla o formulário e a lista.
-- **Fetch:** troca dados entre o front-end e a API.
-- **Flask:** recebe as requisições.
-- **POO:** organiza o código em classes.
-- **DAO:** faz o acesso ao banco.
-- **SQLite:** guarda as tarefas.
+## Tecnologias utilizadas
 
-Cada pasta de etapa possui um README com sua própria explicação.
+- HTML, CSS e JavaScript
+- Python e Flask
+- SQLite
+- Fetch API
+
+Este projeto foi feito como atividade escolar integrada de Desenvolvimento de Websites, Programação Orientada a Objetos e Banco de Dados.
