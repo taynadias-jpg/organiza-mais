@@ -1,5 +1,5 @@
 """
-Conexão inicial do Organiza+ com o banco SQLite.
+Conexão inicial do Agendaê com o banco SQLite.
 A conexão é aberta automaticamente e a tabela é criada se ainda não existir.
 """
 
