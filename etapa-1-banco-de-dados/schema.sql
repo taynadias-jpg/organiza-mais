@@ -1,4 +1,4 @@
--- Organiza+ | Etapa 1
+-- Agendaê | Etapa 1
 -- Banco SQLite: a conexão cria o arquivo organiza_plus.db automaticamente.
 
 CREATE TABLE IF NOT EXISTS tarefas (
