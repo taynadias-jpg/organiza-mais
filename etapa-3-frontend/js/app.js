@@ -1,5 +1,5 @@
 // Endereço da API criada na Etapa 2 (Flask).
-const API_URL = "http://127.0.0.1:5000/api/tarefas";
+const API_URL = "/api/tarefas";
 
 const formulario = document.getElementById("form-tarefa");
 const lista = document.getElementById("lista-tarefas");
