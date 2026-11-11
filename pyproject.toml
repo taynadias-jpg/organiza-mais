@@ -1,2 +1,0 @@
-[tool.vercel]
-entrypoint = "etapa-2-backend.app:app"
