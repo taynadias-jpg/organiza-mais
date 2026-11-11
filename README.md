@@ -1,4 +1,4 @@
-# Organiza+ — Projeto Integrado DWS + POO + BD
+# Agendaê — Projeto Integrado DWS + POO + BD
 
 Sistema simples para organizar tarefas escolares. Os arquivos estão separados conforme o que o professor pede em cada etapa.
 
