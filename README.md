@@ -1,75 +1,66 @@
 # Organiza+ — Projeto Integrado DWS + POO + BD
 
-Sistema web simples para organizar tarefas escolares.
+Sistema simples para organizar tarefas escolares. Os arquivos estão separados conforme o que o professor pede em cada etapa.
 
-## Organização das entregas
+## Parte 1 — Etapa 1: Modelagem e banco de dados
+Pasta: `etapa-1-banco-de-dados/`
 
-O projeto está separado em três partes, seguindo as etapas solicitadas:
+- `modelo_uml.md`: diagrama UML.
+- `schema.sql`: criação da tabela.
+- `conexao.py`: conexão inicial com SQLite.
 
-### Parte 1 — Etapa 1: Modelagem e banco de dados
-- Modelo UML: `docs/modelo_uml.md`
-- Script SQL: `database/schema.sql`
-- Conexão SQLite: `database/conexao.py`
-- Resumo: `entregas/parte-1-etapa-1.md`
+## Parte 2 — Etapa 2: Back-end Python
+Pasta: `etapa-2-backend/`
 
-### Parte 2 — Etapa 2: Back-end Python
-- Classe: `models/tarefa.py`
-- DAO: `daos/tarefa_dao.py`
-- Rotas Flask: `routes/tarefa_routes.py`
-- Aplicação: `app.py`
-- Dependências: `requirements.txt`
-- Resumo: `entregas/parte-2-etapa-2.md`
+- `app.py`: aplicação Flask.
+- `models/tarefa.py`: classe Tarefa.
+- `daos/tarefa_dao.py`: cadastro e consulta no banco.
+- `routes/tarefa_routes.py`: rotas GET e POST.
+- `database/`: conexão e estrutura da tabela.
+- `requirements.txt`: bibliotecas necessárias.
 
-### Parte 3 — Etapa 3: Front-end integrado
-- Página: `frontend/index.html`
-- Estilo: `frontend/css/style.css`
-- JavaScript e Fetch: `frontend/js/app.js`
-- Resumo: `entregas/parte-3-etapa-3.md`
+## Parte 3 — Etapa 3: Front-end (Entrega Final)
+Pasta: `etapa-3-frontend/`
+
+- `index.html`: estrutura da página e formulário.
+- `css/style.css`: aparência e responsividade.
+- `js/app.js`: JavaScript e integração com a API usando Fetch.
 
 ## Como executar o sistema completo
 
-É necessário ter Python 3 instalado.
+**1. Inicie o back-end**
 
-**Terminal 1 — iniciar o back-end:**
+Abra um terminal dentro da pasta `etapa-2-backend` e execute:
 
 ```bash
 pip install -r requirements.txt
 python app.py
 ```
 
-Deixe esse terminal aberto. A API ficará em `http://127.0.0.1:5000`.
+Deixe o servidor Flask aberto no terminal.
 
-**Terminal 2 — abrir o front-end:**
+**2. Inicie o front-end**
 
-Na pasta principal do projeto, execute:
+Abra outro terminal na pasta principal do projeto e execute:
 
 ```bash
 python -m http.server 5500
 ```
 
-Abra `http://127.0.0.1:5500/frontend/` no navegador.
+**3. Abra no navegador**
 
-Outra opção é abrir `frontend/index.html` pelo Live Server do VS Code. O Flask deve continuar ligado.
+Acesse `http://127.0.0.1:5500/etapa-3-frontend/`.
 
-## O que o sistema faz
-- Cadastra tarefas com título, matéria, data de entrega e descrição.
-- Consulta as tarefas salvas no banco SQLite.
-- Atualiza a lista depois do cadastro sem recarregar a página.
-- Permite pesquisar pelo título ou pela matéria.
-- Mostra mensagens quando ocorre algum erro de conexão ou preenchimento.
+O front-end consulta as tarefas pela rota GET e envia novos cadastros pela rota POST. O back-end salva os dados no banco SQLite.
 
-## Rotas da API
-- `GET /api/tarefas`: consulta todas as tarefas.
-- `POST /api/tarefas`: cadastra uma tarefa em JSON.
-
-## Explicação simples
+## O que cada tecnologia faz
 - **HTML:** estrutura da página.
 - **CSS:** aparência da página.
 - **JavaScript:** controla o formulário e a lista.
-- **Fetch:** envia e recebe dados da API.
-- **Flask:** recebe as requisições do navegador.
-- **POO:** a classe `Tarefa` representa cada tarefa.
-- **DAO:** faz a comunicação com o banco.
-- **SQLite:** armazena os registros.
+- **Fetch:** troca dados entre o front-end e a API.
+- **Flask:** recebe as requisições.
+- **POO:** organiza o código em classes.
+- **DAO:** faz o acesso ao banco.
+- **SQLite:** guarda as tarefas.
 
-Consulte os arquivos dentro de `entregas/` para ver o que foi feito em cada parte.
+Cada pasta de etapa possui um README com sua própria explicação.
