@@ -6,8 +6,8 @@
     },
     "backend": {
       "root": "etapa-2-backend",
-      "framework": "flask",
-      "entrypoint": "app:app"
+      "entrypoint": "app.py",
+      "framework": "flask"
     }
   },
   "rewrites": [
