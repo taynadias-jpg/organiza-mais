@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Organiza+ - organize suas tarefas escolares.">
+    <title>Organiza+ | Minhas tarefas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="topo">
+        <a class="marca" href="#" aria-label="Organiza mais - início">
+            <span class="marca-icone">O+</span>
+            <span>organiza<span class="marca-destaque">+</span></span>
+        </a>
+        <span class="topo-legenda">Seu espaço de organização escolar</span>
+    </header>
+
+    <main class="container">
+        <section class="boas-vindas">
+            <div>
+                <p class="etiqueta">UM PASSO DE CADA VEZ</p>
+                <h1>Suas tarefas,<br><span>em ordem.</span></h1>
+                <p class="subtitulo">Anote seus trabalhos e acompanhe tudo em um só lugar.</p>
+            </div>
+            <div class="resumo" aria-live="polite">
+                <span class="resumo-numero" id="total-tarefas">0</span>
+                <span>tarefas cadastradas</span>
+            </div>
+        </section>
+
+        <section class="painel">
+            <div class="painel-titulo">
+                <div>
+                    <p class="etiqueta">NOVA ATIVIDADE</p>
+                    <h2>Adicionar tarefa</h2>
+                </div>
+                <span class="decoracao">✦</span>
+            </div>
+
+            <form id="form-tarefa">
+                <div class="campo">
+                    <label for="titulo">Nome da tarefa *</label>
+                    <input id="titulo" name="titulo" type="text" maxlength="120"
+                           placeholder="Ex.: Trabalho de história" required>
+                </div>
+
+                <div class="grade-campos">
+                    <div class="campo">
+                        <label for="materia">Matéria *</label>
+                        <input id="materia" name="materia" type="text" maxlength="80"
+                               placeholder="Ex.: História" required>
+                    </div>
+                    <div class="campo">
+                        <label for="data_entrega">Data de entrega *</label>
+                        <input id="data_entrega" name="data_entrega" type="date" required>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="descricao">Descrição <span>(opcional)</span></label>
+                    <textarea id="descricao" name="descricao" rows="3" maxlength="500"
+                              placeholder="Escreva algum detalhe importante..."></textarea>
+                </div>
+
+                <button class="botao-principal" id="botao-salvar" type="submit">
+                    <span>＋</span> Salvar tarefa
+                </button>
+                <p class="mensagem" id="mensagem" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="lista-area">
+            <div class="lista-cabecalho">
+                <div>
+                    <p class="etiqueta">SEU PLANEJAMENTO</p>
+                    <h2>Minhas tarefas</h2>
+                </div>
+                <button class="botao-atualizar" id="botao-atualizar" type="button">↻ Atualizar</button>
+            </div>
+
+            <div class="filtros">
+                <label class="busca">
+                    <span aria-hidden="true">⌕</span>
+                    <input id="filtro" type="search" placeholder="Buscar por tarefa ou matéria..."
+                           aria-label="Buscar tarefas">
+                </label>
+                <span id="contador-lista" class="contador-lista">Carregando...</span>
+            </div>
+
+            <div id="lista-tarefas" class="lista-tarefas" aria-live="polite">
+                <p class="estado-lista">Carregando tarefas...</p>
+            </div>
+        </section>
+        <p class="rodape-nota">Organiza+ · Um jeito mais leve de cuidar dos seus prazos.</p>
+    </main>
+</body>
+</html>
