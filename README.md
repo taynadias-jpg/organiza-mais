@@ -1,85 +1,75 @@
-# Organiza+ — Etapas 1 e 2
+# Organiza+ — Projeto Integrado DWS + POO + BD
 
-Sistema simples para organizar tarefas escolares.
+Sistema web simples para organizar tarefas escolares.
 
-## Objetivo
-Permitir que o aluno cadastre tarefas, informe a matéria, a data de entrega e acompanhe os registros.
+## Organização das entregas
 
-## Etapa 1 — Banco de dados
-- Modelo UML inicial em `docs/modelo_uml.md`.
-- Tabela `tarefas` criada em SQLite.
-- Conexão inicial em Python em `database/conexao.py`.
+O projeto está separado em três partes, seguindo as etapas solicitadas:
 
-## Etapa 2 — Back-end Python
-- Classe `Tarefa` para representar uma tarefa.
-- Classe `TarefaDAO` para cadastrar e consultar tarefas no banco.
-- API Flask com rotas GET e POST.
-- Validação dos campos obrigatórios e da data.
-- CORS habilitado para integração com o front-end na próxima etapa.
+### Parte 1 — Etapa 1: Modelagem e banco de dados
+- Modelo UML: `docs/modelo_uml.md`
+- Script SQL: `database/schema.sql`
+- Conexão SQLite: `database/conexao.py`
+- Resumo: `entregas/parte-1-etapa-1.md`
 
-## Como instalar e executar
-1. Instale Python 3.
-2. Abra o terminal na pasta do projeto.
-3. (Opcional) Crie um ambiente virtual: `python -m venv .venv`.
-4. No Windows, ative com: `.venv\Scripts\activate`.
-5. Instale as dependências: `pip install -r requirements.txt`.
-6. Inicie a API: `python app.py`.
-7. Acesse `http://127.0.0.1:5000/`.
+### Parte 2 — Etapa 2: Back-end Python
+- Classe: `models/tarefa.py`
+- DAO: `daos/tarefa_dao.py`
+- Rotas Flask: `routes/tarefa_routes.py`
+- Aplicação: `app.py`
+- Dependências: `requirements.txt`
+- Resumo: `entregas/parte-2-etapa-2.md`
 
-O banco `database/organiza_plus.db` e a tabela são criados automaticamente quando a API inicia.
+### Parte 3 — Etapa 3: Front-end integrado
+- Página: `frontend/index.html`
+- Estilo: `frontend/css/style.css`
+- JavaScript e Fetch: `frontend/js/app.js`
+- Resumo: `entregas/parte-3-etapa-3.md`
+
+## Como executar o sistema completo
+
+É necessário ter Python 3 instalado.
+
+**Terminal 1 — iniciar o back-end:**
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+Deixe esse terminal aberto. A API ficará em `http://127.0.0.1:5000`.
+
+**Terminal 2 — abrir o front-end:**
+
+Na pasta principal do projeto, execute:
+
+```bash
+python -m http.server 5500
+```
+
+Abra `http://127.0.0.1:5500/frontend/` no navegador.
+
+Outra opção é abrir `frontend/index.html` pelo Live Server do VS Code. O Flask deve continuar ligado.
+
+## O que o sistema faz
+- Cadastra tarefas com título, matéria, data de entrega e descrição.
+- Consulta as tarefas salvas no banco SQLite.
+- Atualiza a lista depois do cadastro sem recarregar a página.
+- Permite pesquisar pelo título ou pela matéria.
+- Mostra mensagens quando ocorre algum erro de conexão ou preenchimento.
 
 ## Rotas da API
+- `GET /api/tarefas`: consulta todas as tarefas.
+- `POST /api/tarefas`: cadastra uma tarefa em JSON.
 
-### Consultar tarefas
-- Método: `GET`
-- Endereço: `http://127.0.0.1:5000/api/tarefas`
-- Retorna as tarefas cadastradas em JSON.
+## Explicação simples
+- **HTML:** estrutura da página.
+- **CSS:** aparência da página.
+- **JavaScript:** controla o formulário e a lista.
+- **Fetch:** envia e recebe dados da API.
+- **Flask:** recebe as requisições do navegador.
+- **POO:** a classe `Tarefa` representa cada tarefa.
+- **DAO:** faz a comunicação com o banco.
+- **SQLite:** armazena os registros.
 
-### Cadastrar tarefa
-- Método: `POST`
-- Endereço: `http://127.0.0.1:5000/api/tarefas`
-- Cabeçalho: `Content-Type: application/json`
-- Exemplo de corpo:
-
-```json
-{
-  "titulo": "Estudar para a prova",
-  "materia": "Matemática",
-  "descricao": "Revisar os exercícios",
-  "data_entrega": "2026-11-13"
-}
-```
-
-Se o cadastro funcionar, a API responde com status HTTP 201 e os dados da tarefa.
-
-## Estrutura
-```text
-organiza-mais/
-├── app.py
-├── requirements.txt
-├── database/
-│   ├── schema.sql
-│   └── conexao.py
-├── models/
-│   ├── __init__.py
-│   └── tarefa.py
-├── daos/
-│   ├── __init__.py
-│   └── tarefa_dao.py
-├── routes/
-│   ├── __init__.py
-│   └── tarefa_routes.py
-└── docs/
-    └── modelo_uml.md
-```
-
-## Explicação simples para apresentação
-- **Model:** a classe `Tarefa` representa uma tarefa e seus dados.
-- **DAO:** a classe `TarefaDAO` conversa com o banco para cadastrar e listar tarefas.
-- **Flask:** cria a API e recebe as requisições.
-- **GET:** consulta as tarefas.
-- **POST:** cadastra uma tarefa.
-- **SQLite:** guarda os dados mesmo depois que o programa é fechado.
-
-## Limite desta etapa
-Esta entrega contém o back-end. A interface final em HTML, CSS e JavaScript será feita na etapa final.
+Consulte os arquivos dentro de `entregas/` para ver o que foi feito em cada parte.
