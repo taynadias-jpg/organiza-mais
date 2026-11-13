@@ -54,7 +54,7 @@ python -m http.server 5500
 Abra no navegador:
 
 ```
-http://127.0.0.1:5500/etapa-3-frontend/
+http://127.0.0.1:5500/frontend/
 ```
 
 O Flask precisa continuar funcionando enquanto o site estiver aberto, porque é ele que recebe os cadastros e consulta as tarefas.

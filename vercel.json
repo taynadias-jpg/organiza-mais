@@ -2,10 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "services": {
     "frontend": {
-      "root": "etapa-3-frontend"
+      "root": "frontend"
     },
     "backend": {
-      "root": "etapa-2-backend",
+      "root": ".",
       "framework": "flask",
       "entrypoint": "app:app"
     }
